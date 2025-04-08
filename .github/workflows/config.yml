@@ -32,10 +32,12 @@ jobs:
 
       - name: Generate Allure report
         run: |
-          docker run --rm -v ${{ github.workspace }}/allure-results:/app/allure-results \
+          docker run --rm \
+            -v ${{ github.workspace }}/allure-results:/app/allure-results \
             -v ${{ github.workspace }}/allure-report:/app/allure-report \
-            frankescobar/allure-docker-service:2.24.1 \
+            ghcr.io/allure-framework/allure-cli \
             generate /app/allure-results --clean -o /app/allure-report
+
 
       - name: Update Allure history
         run: |
