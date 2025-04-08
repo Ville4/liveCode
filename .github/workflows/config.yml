@@ -35,8 +35,9 @@ jobs:
           docker run --rm \
             -v ${{ github.workspace }}/allure-results:/app/allure-results \
             -v ${{ github.workspace }}/allure-report:/app/allure-report \
-            ghcr.io/allure-framework/allure-cli \
+            allurehq/allure-cli \
             generate /app/allure-results --clean -o /app/allure-report
+
 
 
       - name: Update Allure history
